@@ -3,6 +3,7 @@ package com.greenvapor.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.generation.blogpessoal.model.Postagem;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,6 +24,10 @@ public class Categoria {
 	
 	@NotBlank(message = "É obrigatório inserir a categoria")
 	private String nome;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categoria")
+	private List<Produto> produto;
 	
 
 	public String getNome() {

@@ -24,7 +24,7 @@ import com.greenvapor.repository.CategoriaRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/temas")
+@RequestMapping("/categorias")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController {
 	
@@ -42,7 +42,7 @@ public class CategoriaController {
 			.map(resposta -> ResponseEntity.ok(resposta))
 	        .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	    }
-	@GetMapping("/categoria/{nome}")
+	@GetMapping("/categorias/{nome}")
     public ResponseEntity<List<Categoria>> getByTitle(@PathVariable 
     String nome){
         return ResponseEntity.ok(categoriaRepository
