@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import com.generation.blogpessoal.model.Usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,9 +38,14 @@ public class Produto {
 	@UpdateTimestamp
 	private LocalDateTime data;
 	
-	 @ManyToOne
-		@JsonIgnoreProperties("produto")
-		private Categoria categoria;
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Categoria categoria;
+	 
+	@ManyToOne
+	@JsonIgnoreProperties("usuario")
+	private Usuario usuario;
+
 
 	public long getId() {
 		return id;

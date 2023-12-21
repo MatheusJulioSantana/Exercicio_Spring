@@ -42,7 +42,7 @@ public class CategoriaController {
 			.map(resposta -> ResponseEntity.ok(resposta))
 	        .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	    }
-	@GetMapping("/categorias/{nome}")
+	@GetMapping("/nome/{nome}")
     public ResponseEntity<List<Categoria>> getByTitle(@PathVariable 
     String nome){
         return ResponseEntity.ok(categoriaRepository
